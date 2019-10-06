@@ -1,6 +1,6 @@
 class CallMe{
-    void call(String msg){
-        System.out.println("["+msg);
+    synchronized void call(String msg){
+        System.out.print("["+msg);
         try{
             Thread.sleep(1000);
         }catch(InterruptedException e){
