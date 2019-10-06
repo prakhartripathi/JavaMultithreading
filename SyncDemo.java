@@ -1,5 +1,5 @@
 class CallMe{
-    synchronized void call(String msg){
+    void call(String msg){
         System.out.print("["+msg);
         try{
             Thread.sleep(1000);
@@ -19,7 +19,9 @@ class Caller implements Runnable{
         t = new Thread(this);
     }
     public void run(){
-        target.call(msg);
+        synchronized(target){
+            target.call(msg);
+        }   
     }
 }
 public class SyncDemo{
